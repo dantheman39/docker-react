@@ -10,6 +10,9 @@
     "build": "tsc --noEmit && NODE_ENV=production parcel build index.html",
     "test": "jest"
   },
+  "comments": [
+    "highlight.js and node-forge were added to silence security warnings from github, highlight.js and node-forge"
+  ],
   "devDependencies": {
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
@@ -19,6 +22,8 @@
   "dependencies": {
     "parcel": "^2.0.0-beta.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "highlight.js": "^10.4.1",
+    "node-forge": "^0.10.0"
   }
 }
