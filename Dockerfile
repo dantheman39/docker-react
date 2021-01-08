@@ -1,5 +1,5 @@
-FROM node:alpine as builder
-# In AWS the above won't work. Do:
+# In AWS this won't work, using an unnamed builder
+# FROM node:alpine as builder
 # FROM node:alpine
 
 WORKDIR /usr/app
@@ -14,6 +14,9 @@ COPY ./ ./
 RUN yarn build
 
 FROM nginx
-# AWS has a problem with this, too. Do --from=0
-COPY --from=builder /usr/app/dist /usr/share/nginx/html
+# Elastic beanstalk uses this
+EXPOSE 80
+# If AWS has a problem with this, too. Do --from=0
+# COPY --from=builder /usr/app/dist /usr/share/nginx/html
+COPY --from=0 /usr/app/dist /usr/share/nginx/html
 # Default command of nginx container will do the work for us.
