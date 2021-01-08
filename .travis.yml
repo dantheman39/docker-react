@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t dantheman39/docker-react-tests -f Dockerfile.dev .
+
+script:
+  # Might need the -e CI=true argument
+  # https://facebook.github.io/create-react-app/docs/running-tests#linux-macos-bash
+  - docker run dantheman39/docker-react-tests yarn test --coverage
