@@ -1,7 +1,7 @@
 {
   "name": "homework-cluster-table",
   "version": "1.0.0",
-  "main": "index.html",
+  "main": "index.tsx",
   "license": "None",
   "private": true,
   "scripts": {
