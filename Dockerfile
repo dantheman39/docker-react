@@ -1,6 +1,6 @@
 # In AWS this won't work, using an unnamed builder
 # FROM node:alpine as builder
-# FROM node:alpine
+FROM node:alpine
 
 WORKDIR /usr/app
 
