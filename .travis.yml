@@ -10,3 +10,17 @@ script:
   # Might need the -e CI=true argument
   # https://facebook.github.io/create-react-app/docs/running-tests#linux-macos-bash
   - docker run dantheman39/docker-react-tests yarn test --coverage
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react"
+  env: "DockerReact-env"
+  bucket_name: "elasticbeanstalk-us-east-2-425857983023"
+  bucket_path: "docker-react"
+  on:
+    branch: master
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+
